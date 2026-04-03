@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Show/Hide Card</title>
+
+<style>
+    body {
+        background-color: bisque;
+    }
+    
+  #card{
+    width: 160px;
+    height: 195px;
+    background: lightblue;
+    margin-top: 80px;
+    margin-left: 350px;
+    border-radius: 15px; 
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  #btn {
+  position: fixed;
+  top: 300px;
+  left: 370px;
+  background-color: lavender;
+  border: 0;
+  height: 40px;
+  width: 130px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+#btn:hover {
+  height: 45px;
+  width: 135px;
+  opacity: 0.7;
+  transition: 0.5s ease-in-out;
+}
+</style>
+
+</head>
+<body>
+
+<div id="card">
+   <img src="card.jpg" alt="">
+</div>
+
+<button id="btn">Hide / Show Card</button>
+
+<script>
+
+let card = document.getElementById("card");
+let button = document.getElementById("btn");
+
+btn.addEventListener("click", function() {
+
+    if(card.style.display == "none") {
+        card.style.display = "block";
+    } 
+    else {
+        card.style.display = "none";
+    }
+})
+</script>
+
+</body>
+</html>

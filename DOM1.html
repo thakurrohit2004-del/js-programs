@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">0</h1>
+    <h2 id="heading2">10</h2>
+    <button id = "btn">click here</button>
+    <button id="btn2">Clickkkk</button>
+</body>
+<script>
+   const h1 = document.getElementById("heading");
+   const btn = document.getElementById("btn");
+   let attempt = 0;
+
+   const h2 = document.getElementById("heading2");
+   const btn2 = document.getElementById("btn2");
+   let second = 0;
+
+    btn.addEventListener("click", function() {
+        h1.style.backgroundColor = "Lavender";
+        h1.textContent = attempt++;
+    }
+    )
+    btn2.addEventListener("click", function() {
+        h2.style.backgroundColor = "skyblue";
+        h2.textContent = second--;
+    }
+    )
+</script>
+</html>

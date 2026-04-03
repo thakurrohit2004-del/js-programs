@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .box {
+            height: 330px;
+            width: 250px;
+            border-radius: 15px;
+            background-color: rgb(230, 219, 219);
+            margin-top: 180px;
+            margin-left: 400px;
+            justify-items: center;
+        }
+        img {
+            height: 125px;
+            width: 190px;
+            margin: 30px;
+            align-items: center;
+            align-content: center;
+            border-radius: 15px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        h2 {
+            align-items: center;
+            font-size: 20px;
+            margin-top: -10px;        
+        }
+        p {
+            color: red;
+        }
+        #btn {
+            margin-left: 80px;
+            height: 30px;
+            width: 100px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 0;
+            background-color: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="dhoni.jpg" alt="">
+        <h2>Mahendra Singh Dhoni</h2>
+        <p id="strange">Strangers</p>
+        <button id="btn">Add Friend</button>
+    </div>
+    <script>
+    let str = document.getElementById("strange");
+    let btn = document.getElementById("btn");
+    flag = 0;
+
+    btn.addEventListener("click", function() {
+        if(str.textContent == "Strangers") {
+            str.textContent = "Friends";
+            str.style.color = "Green";
+            btn.textContent = "Remove";
+            flag = 1
+        }
+        else {
+            str.textContent = "Strangers";
+            str.style.color = "Red";
+            btn.textContent = "Add Friend"
+            flag = 0
+        }
+    }
+) 
+    </script>
+</body>
+</html>

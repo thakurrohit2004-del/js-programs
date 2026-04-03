@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Weather App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+    }
+
+    .weather-box {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      max-width: 350px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 5px 0;
+    }
+
+    .temp {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .loading {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="weather-box" id="weatherBox">
+    <p class="loading">Fetching weather data...</p>
+  </div>
+
+  <script>
+    const API_KEY = "37ca8f0a03b727070178ab3685649127";
+
+
+    async function getWeather(lat, lon) {
+      // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log(data);
+      displayWeather(data);
+    }
+
+    function displayWeather(data) {
+      const weatherBox = document.getElementById("weatherBox");
+
+      if (data.cod !== 200) {
+        weatherBox.innerHTML = `<p>❌ Unable to fetch weather data</p>`;
+        return;
+      }
+
+      // normalization
+      
+      const city = data.name;
+      const temp = Math.round(data.main.temp);
+      const desc = data.weather[0].description;
+      const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+      weatherBox.innerHTML = `
+        <h1>${city}</h1>
+        <img src="${icon}" alt="Weather Icon" />
+        <div class="temp">${temp}°C</div>
+        <p>${desc.charAt(0).toUpperCase() + desc.slice(1)}</p>
+        <p>💧 Humidity: ${data.main.humidity}%</p>
+        <p>🌬 Wind: ${data.wind.speed} m/s</p>
+      `;
+    }
+
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            console.log(lat);
+
+            const lon = position.coords.longitude;
+            console.log(lon);
+
+            getWeather(lat, lon);
+          },
+          (error) => {
+            document.getElementById("weatherBox").innerHTML =
+              `<p>⚠️ Location access denied. Please enable GPS.</p>`;
+          }
+        );
+      } else {
+        document.getElementById("weatherBox").innerHTML =
+          `<p>Geolocation not supported by your browser.</p>`;
+      }
+    }
+    getLocation();
+  </script>
+</body>
+
+</html>

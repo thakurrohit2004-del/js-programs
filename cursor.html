@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor</title>
+    <style>
+        body {
+            background-color: black;
+            height: 100vh;
+            width: 100vw;
+        }
+        #main {
+            display: flex;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            justify-content: space-between;
+            /* justify-content: center;
+            align-items: center; */
+        }
+        #cursor {
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            position: absolute;
+            mix-blend-mode: difference;
+            transition: all linear 0.3s;
+        }
+        /* h1 {
+            font-size: 40px;
+            color: white;
+            align-content: center;
+            justify-items: center; */
+        /* } */
+        h1{
+            font-size: 60px;
+            font-family: cursive;
+            background: linear-gradient(90deg, purple, lavender, skyblue);
+            letter-spacing: 2px;
+            height: 80px;
+            transition: 0.4s;
+            margin-top: 200px;
+            mix-blend-mode: difference;
+            margin-left: 400px;
+    }
+        h1:hover{
+            transform: scale(1.1);
+    }
+        #logo {
+            height: 120px;
+            width: 200px;
+            display: flex;
+            border-radius: 20px;
+            margin-top: 50px;
+            position: absolute;
+            gap: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="main">
+        <div id="logo">
+            <img src="card.jpg" alt="">
+            <img src="card.jpg" alt="">
+            <img src="dhoni.jpg" alt="">
+        </div>
+        <div id="cursor"></div>
+        <h1>Cursor Mover</h1>
+    </div>
+    <script>
+        let main = document.getElementById("main")
+        let cursor = document.getElementById("cursor")
+
+        main.addEventListener("mousemove", function(detail)
+        {
+            cursor.style.left = detail.clientX + "px";
+            cursor.style.top = detail.clientY + "px";
+        }
+    
+    )
+    </script>
+</body>
+</html>

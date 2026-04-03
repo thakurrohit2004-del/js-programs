@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"/>
+    <style>
+        body {
+            background-color: black;
+        }
+        #blank {
+            height: 100px;
+            width: 100px;
+
+            border-radius: 60px;
+            margin-top: 80px;
+            margin-left: 300px;
+        }
+        #btn  {
+            height: 30px;
+            width: 70px;
+            background-color: beige;
+            border-radius: 20px;
+            margin-top: 50px;
+            margin-left: 310px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id = "blank">
+        <i class="ri-lightbulb-ai-line"></i>
+    </div>
+    <button id="btn">OF</button>
+    <script>
+        let blk = document.getElementById("blank");
+        let btn = document.getElementById("btn")
+        flag = 0;
+
+        btn.addEventListener("click", function() {
+            if(flag == 0) {
+                blk.style.backgroundColor = "White";
+                btn.textContent = "On";
+                flag = 1;
+            }
+            else {
+                blk.style.backgroundColor = "Yellow"
+                btn.textContent = "Of";
+                flag = 0;
+            }
+        }
+    )
+
+    </script>
+</body>
+</html>

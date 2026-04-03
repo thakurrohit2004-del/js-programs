@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ecommerce Products</title>
+  <style>
+  body {
+    font-family: Arial;
+    background: #f5f5f5;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    background: white;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow:  5px 5px rgba(0,0,0,0.1);
+  }
+
+   .card:hover {
+    opacity: 0.6;
+    transition: 2s linear ;
+   }
+
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+</style>
+  
+</head>
+<body>
+
+<h1>My Store</h1>
+<div id="container">
+   <!-- <div class="card">
+          <h3>Laptop</h3>
+           <p>Price: ₹50000</p>
+           <p>Category: Electronics</p>
+           <img src="clock.jpg" />
+         </div>   -->
+         
+
+</div>
+
+<script>
+  const products = [
+  {
+    id: 1,
+    name: "iPhone 14",
+    price: 79999,
+    category: "Electronics",
+    image: "https://images.pexels.com/photos/30353223/pexels-photo-30353223.jpeg"
+  },
+  {
+    id: 2,
+    name: "Samsung Galaxy S23",
+    price: 74999,
+    category: "Electronics",
+    image: "https://images.pexels.com/photos/30466750/pexels-photo-30466750.jpeg"
+  },
+  {
+    id: 3,
+    name: "Nike Running Shoes",
+    price: 4999,
+    category: "Footwear",
+    image: "https://images.pexels.com/photos/6474814/pexels-photo-6474814.jpeg"
+  },
+  {
+    id: 4,
+    name: "Adidas Sneakers",
+    price: 4599,
+    category: "Footwear",
+    image: "https://images.pexels.com/photos/10723998/pexels-photo-10723998.jpeg"
+  },
+  {
+    id: 5,
+    name: "Leather Jacket",
+    price: 6999,
+    category: "Clothing",
+    image: "https://images.pexels.com/photos/4750171/pexels-photo-4750171.jpeg"
+  },
+  {
+    id: 6,
+    name: "Cotton T-Shirt",
+    price: 999,
+    category: "Clothing",
+    image: "https://images.pexels.com/photos/18186105/pexels-photo-18186105.jpeg"
+  },
+  {
+    id: 7,
+    name: "MacBook Air",
+    price: 99999,
+    category: "Electronics",
+    image: "https://images.pexels.com/photos/12935279/pexels-photo-12935279.jpeg"
+  },
+  {
+    id: 8,
+    name: "Dell Laptop",
+    price: 65999,
+    category: "Electronics",
+    image: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/franchise/latitude/compact-design/fy25/lati-compact-franchise-1920x1440-hero-perf.png?fmt=png-alpha&fit=constrain&wid=1920&hei=1440"
+  },
+  {
+    id: 9,
+    name: "Wooden Dining Table",
+    price: 15000,
+    category: "Furniture",
+    image: "https://picsum.photos/200?random=9"
+  },
+  {
+    id: 10,
+    name: "Office Chair",
+    price: 4500,
+    category: "Furniture",
+    image: "https://picsum.photos/200?random=10"
+  },
+  {
+    id: 11,
+    name: "Smart Watch",
+    price: 2999,
+    category: "Accessories",
+    image: "https://picsum.photos/200?random=11"
+  },
+  {
+    id: 12,
+    name: "Bluetooth Headphones",
+    price: 1999,
+    category: "Accessories",
+    image: "https://picsum.photos/200?random=12"
+  },
+  {
+    id: 13,
+    name: "Backpack",
+    price: 1299,
+    category: "Bags",
+    image: "https://picsum.photos/200?random=13"
+  },
+  {
+    id: 14,
+    name: "Handbag",
+    price: 2499,
+    category: "Bags",
+    image: "https://picsum.photos/200?random=14"
+  },
+  {
+    id: 15,
+    name: "Gaming Mouse",
+    price: 1499,
+    category: "Electronics",
+    image: "https://picsum.photos/200?random=15"
+  },
+  {
+    id: 16,
+    name: "Mechanical Keyboard",
+    price: 3499,
+    category: "Electronics",
+    image: "https://picsum.photos/200?random=16"
+  },
+  {
+    id: 17,
+    name: "Sunglasses",
+    price: 899,
+    category: "Accessories",
+    image: "https://picsum.photos/200?random=17"
+  },
+  {
+    id: 18,
+    name: "Wall Clock",
+    price: 799,
+    category: "Home Decor",
+    image: "https://picsum.photos/200?random=18"
+  },
+  {
+    id: 19,
+    name: "Table Lamp",
+    price: 1199,
+    category: "Home Decor",
+    image: "https://picsum.photos/200?random=19"
+  },
+  {
+    id: 20,
+    name: "Water Bottle",
+    price: 499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 21,
+    name: "Water Bottle",
+    price: 499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 22,
+    name: "Thermos",
+    price: 499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 23,
+    name: "Electric Car",
+    price: 499,
+    category: "Toy Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 24,
+    name: "Smart Watch",
+    price: 3499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+   {
+    id: 23,
+    name: "Electric Car",
+    price: 499,
+    category: "Toy Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 24,
+    name: "Smart Watch",
+    price: 3499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+   {
+    id: 23,
+    name: "Electric Car",
+    price: 499,
+    category: "Toy Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 24,
+    name: "Smart Watch",
+    price: 3499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+   {
+    id: 23,
+    name: "Electric Car",
+    price: 499,
+    category: "Toy Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 24,
+    name: "Smart Watch",
+    price: 3499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+   {
+    id: 23,
+    name: "Electric Car",
+    price: 499,
+    category: "Toy Use",
+    image: "https://picsum.photos/200?random=20"
+  },
+  {
+    id: 24,
+    name: "Smart Watch",
+    price: 3499,
+    category: "Daily Use",
+    image: "https://picsum.photos/200?random=20"
+  }
+
+];
+
+    const container = document.getElementById("container");
+
+
+    products.forEach(product => {
+      container.innerHTML += `
+        <div class="card">
+          <h3>${product.name}</h3>
+          <p>Price: ₹${product.price}</p>
+          <p>Category: ${product.category}</p>
+          <img src=${product.image} />
+        </div>      
+      `;
+    });
+  </script>
+  </body>
+  </html>

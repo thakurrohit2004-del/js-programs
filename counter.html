@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Character Counter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+            margin-top: 10px;
+        }
+
+        .counter {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Live Character Counter</h2>
+
+
+        <textarea id="textInput" placeholder="Start typing..."></textarea>
+
+        <div class="counter">
+            <p>Total Characters: <span id="charCount">0</span></p>
+            <p>Remaining: <span id="remainingCount">200</span></p>
+        </div>
+    </div>
+
+    <script>
+
+        const textInput = document.getElementById("textInput");
+        const charCount = document.getElementById("charCount");
+        const remainingCount = document.getElementById("remainingCount");
+
+        textInput.addEventListener("input", function () {
+            const typedLength = textInput.value.length;
+
+            charCount.textContent = typedLength;
+            remainingCount.textContent = 200 - typedLength;
+        });
+
+
+    </script>
+</body>
+</html>

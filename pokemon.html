@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokeAPI</title>
+  <style>
+    #search {
+     height: 50px;
+     width: 300px;
+     background-color: beige;
+     justify-content: center;
+     padding-left: 90px;
+     font-size: 15px;
+     margin-left: 500px;
+     border: 0px solid white;
+     border-radius: 20px;
+    }
+    button {
+        height: 40px;
+        width: 150px;
+        margin-left: 600px;
+        border: 0px;
+        border-radius: 10px;
+        background-color: rgb(217, 241, 241);
+        cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+    <input type="text" placeholder="Choose your Pokemon" id="search"><br><br>
+    <button onclick="fetchData()">Get Pokemon</button>
+    <!-- <h1 id="weight">Weight of Pokemon :</h1> -->
+
+  <!-- <input type="text" placeholder="Enter Pokemon Name" id="searching"> -->
+  <!-- <button onclick="fetchData()"> Fetch Pokemon Image</button> <br> -->
+  <!-- <h1 id="weight">Weight : </h1> -->
+
+  <img src="" alt="Pokemon Sprite" id="pokemonimage" style="display: none;">
+
+  <script>
+    async function fetchData() {
+        try {
+            let pokemonName = document.getElementById("search").value.toLowerCase().trim();
+
+            if(!pokemonName) {
+                alert("Please enter a valid Pokemon name");
+                return;
+            }
+            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+
+            if (!response.ok) {
+                throw new Error("Pokemon not found!");
+            }
+ 
+            let data = await response.json();
+            console.log(data);
+            
+            let pokemonImg = data.sprites.front_shiny;
+            let imgElement = document.getElementById("pokemonimage");
+
+            imgElement.src = pokemonImg;
+            imgElement.style.display = "block";
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    // async function fetchData() {
+    //   try {
+    //     const pokemonName = document.getElementById("search").value.toLowerCase().trim();
+
+    //     if (!pokemonName) {
+    //       alert("Please enter a Pokémon name");
+    //       return;
+    //     }
+
+    //     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);    
+  
+    //     if (!response.ok) {  //200  //400 /500
+    //       throw new Error("Pokemon not found!");
+    //     }
+
+    //     let data =  await response.json(); // 2
+    //     console.log(data);
+
+    //     let pokemonImg = data.sprites.front_shiny;
+    //     let imgElement = document.getElementById("pokemonimage");
+
+    //     imgElement.src = pokemonImg;
+    //     imgElement.style.display = "block";
+
+    //     document.getElementById("weight").textContent = `Weight : ${data.weight}`
+
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }
+
+  </script>
+</body>
+
+</html>
